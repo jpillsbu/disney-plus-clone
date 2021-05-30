@@ -69,6 +69,7 @@ const ImgTitle = styled.div`
   min-height: 170px;
   width: 35vw;
   min-width: 200px;
+  margin-top: 20px;
 
   img {
     width: 100%;
@@ -78,7 +79,6 @@ const ImgTitle = styled.div`
 `;
 
 const Controls = styled.div`
-  padding-top: 20px;
   display: flex;
   align-items: center;
 `;
@@ -142,6 +142,7 @@ const Description = styled.div`
   font-size: 20px;
   padding-top: 16px;
   color: rgb(249, 249, 249);
+  max-width: 760px;
 `;
 
 export default Detail;
