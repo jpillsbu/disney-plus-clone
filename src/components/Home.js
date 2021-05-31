@@ -4,11 +4,14 @@ import ImgSlider from "./ImgSlider";
 import Movies from "./Movies";
 import Viewers from "./Viewers";
 import db from "../firebase";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setMovies } from "../features/movie/movieSlice";
+import { selectUserName } from "../features/user/userSlice";
+import { Redirect } from "react-router-dom";
 
 function Home() {
   const dispatch = useDispatch();
+  const userName = useSelector(selectUserName);
 
   useEffect(() => {
     db.collection("movies").onSnapshot((snapshot) => {
@@ -22,9 +25,15 @@ function Home() {
 
   return (
     <Container>
-      <ImgSlider />
-      <Viewers />
-      <Movies />
+      {!userName ? (
+        <Redirect to={"/login"} />
+      ) : (
+        <>
+          <ImgSlider />
+          <Viewers />
+          <Movies />
+        </>
+      )}
     </Container>
   );
 }

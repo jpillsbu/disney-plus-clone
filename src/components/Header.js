@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
+import { Redirect, useHistory } from "react-router";
 import styled from "styled-components";
 import {
   selectUserName,
@@ -52,6 +52,10 @@ function Header() {
     });
   };
 
+  const redirectToHome = () => {
+    history.push("/");
+  };
+
   return (
     <Nav>
       <Logo src="/images/logo.svg" />
@@ -62,7 +66,7 @@ function Header() {
       ) : (
         <>
           <NavMenu>
-            <a>
+            <a onClick={redirectToHome}>
               <img src="/images/home-icon.svg" alt="" />
               <span>HOME</span>
             </a>
