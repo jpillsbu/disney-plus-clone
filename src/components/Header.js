@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 import {
   selectUserName,
@@ -29,7 +29,7 @@ function Header() {
         history.push("/");
       }
     });
-  }, []);
+  }, [dispatch, history]);
 
   const signIn = () => {
     auth.signInWithPopup(provider).then((result) => {

@@ -18,8 +18,7 @@ function Detail() {
           console.log("Database may be down now");
         }
       });
-  }, []);
-  console.log(movie);
+  }, [id]);
   return (
     <Container>
       {movie && (
